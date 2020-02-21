@@ -1,0 +1,2 @@
+PS /home/yaswanth> Get-AzureADUser -All $true | Select-Object -Property "Displayname",@{Name="ExpiryDate";Expression={[datetime]::FromFileTime($_."msDS-UserPasswordExpiryTimeComputed")}} | 
+Export-csv -path C:\Temp\Output.csv
